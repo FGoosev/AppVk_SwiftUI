@@ -16,7 +16,7 @@ final class ContentViewModel: ObservableObject {
         
         let items = [
             URLQueryItem(name: Consts.VK.clientIDKey, value: Consts.VK.clientIDValue),
-            URLQueryItem(name: Consts.VK.redirectUriKey, value: Consts.VK.redirectUriValue),
+            //URLQueryItem(name: Consts.VK.redirectUriKey, value: Consts.VK.redirectUriValue),
             URLQueryItem(name: Consts.VK.scopeKey, value: Consts.VK.scopeValue),
             URLQueryItem(name: Consts.VK.displayKey, value: Consts.VK.displayValue),
             URLQueryItem(name: Consts.VK.responseTypeKey, value: Consts.VK.responseTypeValue)
@@ -28,4 +28,8 @@ final class ContentViewModel: ObservableObject {
     }
     
     var token = LocalStorage.current.token
+    
+    init() {
+        print(token)
+    }
 }

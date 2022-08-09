@@ -8,9 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var viewModel = ContentViewModel()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if viewModel.token == nil {
+            webView
+        } else {
+            FriendsListView()
+        }
+    }
+}
+
+private extension ContentView {
+    @ViewBuilder var webView: some View{
+        if let url = viewModel.url{
+            WebViewRepresentable(url: url)
+        }
     }
 }
 

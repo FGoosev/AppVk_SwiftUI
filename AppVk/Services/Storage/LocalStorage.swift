@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import ReactiveSwift
 
 
 enum LocalStorageKey: String {
     case token
     case vkId
+    case expiresIn
 }
 
 struct LocalStorage {
@@ -40,6 +40,16 @@ struct LocalStorage {
         }
         set {
             userDefaults.set(newValue, forKey: LocalStorageKey.token.rawValue)
+        }
+    }
+    
+    var expiresIn: String? {
+        get {
+            userDefaults.string(forKey: LocalStorageKey.expiresIn.rawValue)
+        }
+        
+        set {
+            userDefaults.set(newValue, forKey: LocalStorageKey.expiresIn.rawValue)
         }
     }
 }

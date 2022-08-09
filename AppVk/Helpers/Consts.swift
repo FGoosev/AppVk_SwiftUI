@@ -10,7 +10,7 @@ import Foundation
 struct Consts {
     
     struct BaseAPI {
-        static let baseURL = URL(string: "https://jsonplaceholder.typicode.com")!
+        static let baseURL = URL(string: "https://api.vk.com/method/")!
     }
     
     struct VK {
@@ -23,8 +23,22 @@ struct Consts {
         static let scopeValue = "12"
         static let responseTypeKey = "response_type"
         static let responseTypeValue = "token"
-        static let redirectUriKey = "redirect_uri"
-        static let redirectUriValue = "https://oauth.vk.com/blank.html"
+        static let tokenKey = "access_token"
+        //static let redirectUriKey = "redirect_uri"
+        //static let redirectUriValue = "https://oauth.vk.com/blank.html"
+    }
+    
+    struct MethodVK {
+        static let baseVkURL = "https://api.vk.com/method/"
+        static let userIdKey = "user_id"
+        static let userIdValue = LocalStorage.current.token
+        static let orderKey = "order"
+        static let orderValue = "name"
+        static let fieldsKey = "fields"
+        static let fieldsValue = "status"
+        static let nameCaseKey = "name_case"
+        static let nameCaseValue = "nom"
+        
     }
     
 }
