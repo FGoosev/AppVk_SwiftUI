@@ -7,26 +7,13 @@
 
 import Foundation
 import Combine
+import CombineExt
+
 
 
 final class FriendsListViewModel: ObservableObject {
     
     let apiService = BaseApiService()
-    
-    var url: URL?{
-        guard let urlComponents = URLComponents(string: Consts.MethodVK.baseVkURL) else {
-            return nil
-        }
-        
-        let items = [
-            URLQueryItem(name: Consts.MethodVK.userIdKey, value: Consts.MethodVK.userIdValue),
-            URLQueryItem(name: Consts.MethodVK.orderKey, value: Consts.MethodVK.orderValue),
-            URLQueryItem(name: Consts.MethodVK.fieldsKey, value: Consts.MethodVK.fieldsValue),
-            URLQueryItem(name: Consts.MethodVK.nameCaseKey, value: Consts.MethodVK.nameCaseValue)
-        ]
-        
-        return urlComponents.url
-    }
     
     let input = Input()
     @Published var output = Output()
@@ -43,18 +30,30 @@ final class FriendsListViewModel: ObservableObject {
     
     func bindRequest() {
         
-        input.onAppear
+        let request = input.onAppear
             .map { [unowned self] in
                 self.apiService.getFriends()
+                    .materialize()
             }
             .switchToLatest()
-            .sink { error in
-                print(error)
-            } receiveValue: { friend in
-                print(friend)
+            .share()
+        
+        request
+            .values()
+            .sink{ [weak self] in
+                self?.output.friends = $0
             }
             .store(in: &cancellable)
-
+        
+        request
+            .failures()
+            .sink{
+                switch $0 {
+                case .badQuery: print("badQuery")
+                case .notFound: print("notFound")
+                }
+            }
+            .store(in: &cancellable)
     
     }
     
@@ -67,6 +66,6 @@ extension FriendsListViewModel {
     }
     
     struct Output {
-        
+        var friends: [FriendModel] = []
     }
 }

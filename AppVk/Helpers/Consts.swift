@@ -10,7 +10,7 @@ import Foundation
 struct Consts {
     
     struct BaseAPI {
-        static let baseURL = URL(string: "https://api.vk.com/method/")!
+        static let baseURL = URL(string: "https://api.vk.com/method")!
     }
     
     struct VK {
@@ -29,16 +29,7 @@ struct Consts {
     }
     
     struct MethodVK {
-        static let baseVkURL = "https://api.vk.com/method/"
-        static let userIdKey = "user_id"
-        static let userIdValue = LocalStorage.current.token
-        static let orderKey = "order"
-        static let orderValue = "name"
-        static let fieldsKey = "fields"
-        static let fieldsValue = "status"
-        static let nameCaseKey = "name_case"
-        static let nameCaseValue = "nom"
-        
+        static let baseVkURL = "https://api.vk.com"
     }
     
 }

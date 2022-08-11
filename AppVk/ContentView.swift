@@ -11,10 +11,10 @@ struct ContentView: View {
     
     @StateObject var viewModel = ContentViewModel()
     var body: some View {
-        if viewModel.token == nil {
+        if !viewModel.output.showFriends {
             webView
         } else {
-            FriendsListView()
+            TabBar()
         }
     }
 }
@@ -22,7 +22,7 @@ struct ContentView: View {
 private extension ContentView {
     @ViewBuilder var webView: some View{
         if let url = viewModel.url{
-            WebViewRepresentable(url: url)
+            WebViewRepresentable(url: url, onComplited: viewModel.input.onComplitedWebView)
         }
     }
 }

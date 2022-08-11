@@ -19,7 +19,9 @@ extension BaseApiService {
     func getFriends() -> AnyPublisher<[FriendModel], APIError> {
         provider.requestPublisher(.getFriends)
             .filterSuccessfulStatusCodes()
-            .map([FriendModel].self)
+            .map(ServerResponse.self)
+            .map{$0.response.items}
+            .map{FriendModelMapper().toLocal(list: $0)}
             .mapError({ _ in
                     .badQuery
             })

@@ -6,8 +6,25 @@
 //
 
 import Foundation
+import Combine
 
 final class ContentViewModel: ObservableObject {
+    
+    let input = Input()
+    @Published var output = Output()
+    var cancellable = Set<AnyCancellable>()
+    
+    init() {
+        bind()
+    }
+    
+    func bind(){
+        input.onComplitedWebView
+            .sink{ [weak self] in
+                self?.output.showFriends = true
+            }
+            .store(in: &cancellable)
+    }
     
     var url: URL? {
         guard var urlComponents = URLComponents(string: Consts.VK.vkURL) else {
@@ -28,8 +45,16 @@ final class ContentViewModel: ObservableObject {
     }
     
     var token = LocalStorage.current.token
+}
+
+
+extension ContentViewModel {
     
-    init() {
-        print(token)
+    struct Input {
+        let onComplitedWebView = PassthroughSubject<Void, Never>()
+    }
+    
+    struct Output {
+        var showFriends = LocalStorage.current.token != nil
     }
 }

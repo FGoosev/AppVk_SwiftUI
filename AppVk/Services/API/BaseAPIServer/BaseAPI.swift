@@ -21,7 +21,7 @@ extension BaseAPI: TargetType {
     var path: String {
         switch self {
         case .getFriends:
-            return "friends.get?v=5.131&access_token=vk1.a.Si3EvVfGmOAfAcngkYdfu-Id9IaV0UouDJ-_awto6DWi5zjv76J_fA1GAsuO73lbEBhXb6DfUBatrPehn54OHDMEQ0SmXXmAzlNEFZUY94e_dWPk8MMNuwfUId3XW6FOXwREbJdyQq8DbCrkIAJmfF5bQib8bcAOfbxFbyw5vQRzS1VnbinHoIsrbbxp2Jhu"
+            return "method/friends.get"
         }
     }
     
@@ -30,7 +30,13 @@ extension BaseAPI: TargetType {
     }
     
     var task: Task {
-        .requestPlain
+        var param: [String: Any] = [:]
+        param["v"] = "5.131"
+        param["access_token"] = LocalStorage.current.token
+        param["count"] = 100
+        param["fields"] = "online,photo_50"
+        
+        return .requestParameters(parameters: param, encoding: URLEncoding.default)
     }
     
     var headers: [String : String]? {
