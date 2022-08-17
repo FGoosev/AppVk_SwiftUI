@@ -20,7 +20,7 @@ struct TabBar: View {
                     Text("Друзья")
                 }
             
-            Text("Radio")
+            GroupsListView()
                 .tag(1)
                 .tabItem{
                     Image(systemName: "rectangle.3.group")

@@ -16,7 +16,7 @@ struct FriendsListView: View {
             listFriends
         }
         .onAppear(perform: onApperSend)
-        .padding()
+
             
     }
 }

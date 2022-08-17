@@ -1,38 +1,35 @@
 //
-//  FriendsListViewModel.swift
+//  GroupsListViewModel.swift
 //  AppVk
 //
-//  Created by Alexandr Gusev on 09.08.2022.
+//  Created by Alexandr Gusev on 12.08.2022.
 //
 
 import Foundation
 import Combine
 import CombineExt
 
-
-
-final class FriendsListViewModel: ObservableObject {
-    
+final class GroupsListViewModel: ObservableObject{
     let apiService = BaseAPIService()
     
-    let input = Input()
     @Published var output = Output()
+    let input = Input()
     
     private var cancellable = Set<AnyCancellable>()
     
-    init() {
-        setubBindings()
+    init(){
+        setupBindings()
     }
     
-    func setubBindings() {
+    func setupBindings() {
         bindRequest()
     }
     
     func bindRequest() {
         
         let request = input.onAppear
-            .map { [unowned self] in
-                self.apiService.getFriends()
+            .map{ [unowned self] in
+                self.apiService.getGroups()
                     .materialize()
             }
             .switchToLatest()
@@ -41,7 +38,7 @@ final class FriendsListViewModel: ObservableObject {
         request
             .values()
             .sink{ [weak self] in
-                self?.output.friends = $0
+                self?.output.groups = $0
             }
             .store(in: &cancellable)
         
@@ -54,18 +51,18 @@ final class FriendsListViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellable)
-    
+        
     }
-    
 }
 
-extension FriendsListViewModel {
+extension GroupsListViewModel {
     
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
+        let onTap = PassthroughSubject<Int, Never>()
     }
     
     struct Output {
-        var friends: [FriendModel] = []
+        var groups: [GroupModel] = []
     }
 }
