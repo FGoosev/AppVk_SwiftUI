@@ -28,6 +28,9 @@ extension GroupsListView {
     var groupsList: some View {
         ForEach(viewModel.output.groups){ model in
             GroupCellView(model: model)
+                .onTapGesture {
+                    uploadModelId(id: model.id)
+                }
                 .padding(.bottom, 10)
         }
     }
@@ -37,6 +40,10 @@ extension GroupsListView {
     
     func onAppearSend(){
         viewModel.input.onAppear.send()
+    }
+    
+    func uploadModelId(id: Int){
+        viewModel.input.modelId.send(id)
     }
 }
 

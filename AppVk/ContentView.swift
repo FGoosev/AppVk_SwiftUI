@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ContentViewModel()
+    @StateObject var viewModel = ContentViewModel(router: ContentCoordinator())
     var body: some View {
         if !viewModel.output.showFriends {
             webView
@@ -29,6 +29,6 @@ private extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ContentViewModel(router: ContentCoordinator()))
     }
 }

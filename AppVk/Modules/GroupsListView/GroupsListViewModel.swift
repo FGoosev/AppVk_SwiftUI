@@ -11,7 +11,7 @@ import CombineExt
 
 final class GroupsListViewModel: ObservableObject{
     let apiService = BaseAPIService()
-    
+    //private weak var router: LoginRouter?
     @Published var output = Output()
     let input = Input()
     
@@ -59,7 +59,7 @@ extension GroupsListViewModel {
     
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
-        let onTap = PassthroughSubject<Int, Never>()
+        let modelId = PassthroughSubject<Int, Never>()
     }
     
     struct Output {
