@@ -12,6 +12,7 @@ enum LocalStorageKey: String {
     case token
     case vkId
     case expiresIn
+    case status
 }
 
 struct LocalStorage {
@@ -51,5 +52,17 @@ struct LocalStorage {
         set {
             userDefaults.set(newValue, forKey: LocalStorageKey.expiresIn.rawValue)
         }
+    }
+    
+    var status: Bool? {
+        
+        get {
+            userDefaults.bool(forKey: LocalStorageKey.status.rawValue)
+        }
+        
+        set {
+            userDefaults.set(newValue, forKey: LocalStorageKey.status.rawValue)
+        }
+        
     }
 }

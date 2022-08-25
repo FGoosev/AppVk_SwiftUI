@@ -11,15 +11,30 @@ import Stinsen
 
 final class GroupsCoordinator: NavigationCoordinatable{
     
-    var stack: NavigationStack<GroupsCoordinator>
+    let stack = NavigationStack(initial: \GroupsCoordinator.start)
     
+    @Root var start = loadGroupView
+    @Route(.push) var infoGroup = makeInfoGroup
+    
+#if DEBUG
+    deinit {
+        print("Coordinator \(self) DEINITED!!!")
+    }
+#endif
     
 }
 
 extension GroupsCoordinator {
     
-    @ViewBuilder func makeGroupsInfo() -> some View {
-        
+    @ViewBuilder func loadGroupView() -> some View {
+        let viewModel = GroupsListViewModel(router: self)
+        GroupsListView(viewModel: viewModel)
+    }
+    
+    @ViewBuilder func makeInfoGroup(modelId: Int) -> some View {
+        let viewModel = GroupInfoViewModel(modelId: modelId)
+        GroupInfoView(viewModel: viewModel)
     }
     
 }
+

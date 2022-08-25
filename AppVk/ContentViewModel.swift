@@ -15,6 +15,7 @@ final class ContentViewModel: ObservableObject {
     private weak var router: LoginRouter?
     var cancellable = Set<AnyCancellable>()
     
+    
     init(router: LoginRouter?) {
         bind()
         self.router = router
@@ -24,6 +25,7 @@ final class ContentViewModel: ObservableObject {
         input.onComplitedWebView
             .sink{ [weak self] in
                 self?.output.showFriends = true
+                LocalStorage.current.status = true
             }
             .store(in: &cancellable)
     }

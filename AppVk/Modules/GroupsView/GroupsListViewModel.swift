@@ -11,18 +11,22 @@ import CombineExt
 
 final class GroupsListViewModel: ObservableObject{
     let apiService = BaseAPIService()
-    //private weak var router: LoginRouter?
+    private weak var router: GroupRouter?
     @Published var output = Output()
-    let input = Input()
+    let input: Input
     
     private var cancellable = Set<AnyCancellable>()
     
-    init(){
+    init(router: GroupRouter){
+        self.router = router
+        self.input = Input()
+        self.output = Output()
         setupBindings()
     }
     
     func setupBindings() {
         bindRequest()
+        bindInfoGroup()
     }
     
     func bindRequest() {
@@ -42,6 +46,7 @@ final class GroupsListViewModel: ObservableObject{
             }
             .store(in: &cancellable)
         
+        
         request
             .failures()
             .sink{
@@ -51,6 +56,15 @@ final class GroupsListViewModel: ObservableObject{
                 }
             }
             .store(in: &cancellable)
+        
+    }
+    
+    func bindInfoGroup() {
+        
+        input.modelId.sink { value in
+            self.router?.goToInfoGroup(modelId: value)
+        }
+        .store(in: &cancellable)
         
     }
 }
@@ -64,5 +78,6 @@ extension GroupsListViewModel {
     
     struct Output {
         var groups: [GroupModel] = []
+        var modelId: Int = 0
     }
 }

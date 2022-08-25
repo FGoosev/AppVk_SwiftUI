@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F160BFF28AE7BF200C8FD20 /* GroupsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F160BFE28AE7BF200C8FD20 /* GroupsCoordinator.swift */; };
+		9F28602028AFD2A9005BE590 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28601F28AFD2A9005BE590 /* TabBarCoordinator.swift */; };
 		9F2CA81128A1B390004ADF9F /* FriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CA81028A1B390004ADF9F /* FriendsListView.swift */; };
 		9F2CA81328A1B39F004ADF9F /* FriendsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CA81228A1B39F004ADF9F /* FriendsListViewModel.swift */; };
 		9F42E46B28A6918100DC0CBB /* ServerGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42E46A28A6918100DC0CBB /* ServerGroupModel.swift */; };
@@ -22,13 +23,14 @@
 		9F475D2528AD35330095962C /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F475D2428AD35330095962C /* PhotoView.swift */; };
 		9F475D2828AD354C0095962C /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F475D2728AD354C0095962C /* PhotoViewModel.swift */; };
 		9F475D2A28AD37FA0095962C /* ServerPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F475D2928AD37FA0095962C /* ServerPhotoModel.swift */; };
+		9F6679E628B79546001BFEEA /* GroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6679E528B79546001BFEEA /* GroupInfoViewModel.swift */; };
+		9F6679E828B79D9C001BFEEA /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6679E728B79D9C001BFEEA /* LoginRouter.swift */; };
 		9F79A32028A4D1FF000386D0 /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79A31F28A4D1FF000386D0 /* BaseModelMapper.swift */; };
 		9F79A32228A4D257000386D0 /* FriendModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79A32128A4D257000386D0 /* FriendModelMapper.swift */; };
 		9F79A32428A4D291000386D0 /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79A32328A4D291000386D0 /* Extensions+String.swift */; };
 		9F79A32928A4D5A3000386D0 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 9F79A32828A4D5A3000386D0 /* CombineExt */; };
 		9F79A32C28A4DE71000386D0 /* FriendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79A32B28A4DE70000386D0 /* FriendCellView.swift */; };
 		9F79A33028A4E605000386D0 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79A32F28A4E604000386D0 /* SearchTextField.swift */; };
-		9F79A33328A4EE5E000386D0 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79A33228A4EE5E000386D0 /* TabBar.swift */; };
 		9F915C5528A039D4005EA2E1 /* AppVkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F915C5428A039D4005EA2E1 /* AppVkApp.swift */; };
 		9F915C5728A039D4005EA2E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F915C5628A039D4005EA2E1 /* ContentView.swift */; };
 		9F915C5928A039DB005EA2E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F915C5828A039DB005EA2E1 /* Assets.xcassets */; };
@@ -44,14 +46,16 @@
 		9F9D4E0A28A2B038002162E0 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9D4E0928A2B038002162E0 /* FriendModel.swift */; };
 		9FA073DC28AE1E7D00995B9B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA073DB28AE1E7D00995B9B /* MainCoordinator.swift */; };
 		9FA073DF28AE1EB600995B9B /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 9FA073DE28AE1EB600995B9B /* Stinsen */; };
-		9FA073E528AE200000995B9B /* GroupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA073E428AE200000995B9B /* GroupInfoView.swift */; };
-		9FA073E828AE201A00995B9B /* GroupInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA073E728AE201A00995B9B /* GroupInfoViewModel.swift */; };
+		9FA073E528AE200000995B9B /* GroupInfoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA073E428AE200000995B9B /* GroupInfoCellView.swift */; };
 		9FA073EA28AE208F00995B9B /* GroupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA073E928AE208F00995B9B /* GroupRouter.swift */; };
+		9FB7D60328B7735D00126B3F /* GroupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB7D60228B7735D00126B3F /* GroupInfoView.swift */; };
 		9FE4C0E328AE3B8300D858C8 /* ContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4C0E228AE3B8300D858C8 /* ContentCoordinator.swift */; };
+		9FF5E39428B5175800843011 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF5E39328B5175800843011 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9F160BFE28AE7BF200C8FD20 /* GroupsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCoordinator.swift; sourceTree = "<group>"; };
+		9F28601F28AFD2A9005BE590 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		9F2CA81028A1B390004ADF9F /* FriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListView.swift; sourceTree = "<group>"; };
 		9F2CA81228A1B39F004ADF9F /* FriendsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewModel.swift; sourceTree = "<group>"; };
 		9F42E46A28A6918100DC0CBB /* ServerGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerGroupModel.swift; sourceTree = "<group>"; };
@@ -64,12 +68,13 @@
 		9F475D2428AD35330095962C /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		9F475D2728AD354C0095962C /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
 		9F475D2928AD37FA0095962C /* ServerPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerPhotoModel.swift; sourceTree = "<group>"; };
+		9F6679E528B79546001BFEEA /* GroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoViewModel.swift; sourceTree = "<group>"; };
+		9F6679E728B79D9C001BFEEA /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		9F79A31F28A4D1FF000386D0 /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
 		9F79A32128A4D257000386D0 /* FriendModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModelMapper.swift; sourceTree = "<group>"; };
 		9F79A32328A4D291000386D0 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
 		9F79A32B28A4DE70000386D0 /* FriendCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCellView.swift; sourceTree = "<group>"; };
 		9F79A32F28A4E604000386D0 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
-		9F79A33228A4EE5E000386D0 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		9F915C5128A039D4005EA2E1 /* AppVk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppVk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F915C5428A039D4005EA2E1 /* AppVkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVkApp.swift; sourceTree = "<group>"; };
 		9F915C5628A039D4005EA2E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,10 +90,11 @@
 		9F9D4E0728A253D5002162E0 /* ServerFriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerFriendModel.swift; sourceTree = "<group>"; };
 		9F9D4E0928A2B038002162E0 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		9FA073DB28AE1E7D00995B9B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		9FA073E428AE200000995B9B /* GroupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoView.swift; sourceTree = "<group>"; };
-		9FA073E728AE201A00995B9B /* GroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoViewModel.swift; sourceTree = "<group>"; };
+		9FA073E428AE200000995B9B /* GroupInfoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoCellView.swift; sourceTree = "<group>"; };
 		9FA073E928AE208F00995B9B /* GroupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRouter.swift; sourceTree = "<group>"; };
+		9FB7D60228B7735D00126B3F /* GroupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoView.swift; sourceTree = "<group>"; };
 		9FE4C0E228AE3B8300D858C8 /* ContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoordinator.swift; sourceTree = "<group>"; };
+		9FF5E39328B5175800843011 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,14 +120,22 @@
 			path = GroupsCoordinator;
 			sourceTree = "<group>";
 		};
-		9F2CA80F28A1B376004ADF9F /* FriendsListView */ = {
+		9F28601E28AFD29B005BE590 /* TabBarCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9F28601F28AFD2A9005BE590 /* TabBarCoordinator.swift */,
+			);
+			path = TabBarCoordinator;
+			sourceTree = "<group>";
+		};
+		9F2CA80F28A1B376004ADF9F /* FriendsView */ = {
 			isa = PBXGroup;
 			children = (
 				9F79A32A28A4DE57000386D0 /* Components */,
 				9F2CA81028A1B390004ADF9F /* FriendsListView.swift */,
 				9F2CA81228A1B39F004ADF9F /* FriendsListViewModel.swift */,
 			);
-			path = FriendsListView;
+			path = FriendsView;
 			sourceTree = "<group>";
 		};
 		9F42E46E28A6956100DC0CBB /* GroupModelMapper */ = {
@@ -132,7 +146,7 @@
 			path = GroupModelMapper;
 			sourceTree = "<group>";
 		};
-		9F42E47828A69C2300DC0CBB /* GroupsListView */ = {
+		9F42E47828A69C2300DC0CBB /* GroupsView */ = {
 			isa = PBXGroup;
 			children = (
 				9FA073E328AE1FE600995B9B /* GroupInfoView */,
@@ -141,7 +155,7 @@
 				9F42E47B28A69C5500DC0CBB /* GroupsListView.swift */,
 				9FA073E928AE208F00995B9B /* GroupRouter.swift */,
 			);
-			path = GroupsListView;
+			path = GroupsView;
 			sourceTree = "<group>";
 		};
 		9F42E47D28A69C6300DC0CBB /* Components */ = {
@@ -188,7 +202,6 @@
 		9F79A32D28A4E5E8000386D0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9F79A33128A4EE54000386D0 /* TabBar */,
 				9F79A32E28A4E5F6000386D0 /* AppTextField */,
 			);
 			path = Components;
@@ -200,14 +213,6 @@
 				9F79A32F28A4E604000386D0 /* SearchTextField.swift */,
 			);
 			path = AppTextField;
-			sourceTree = "<group>";
-		};
-		9F79A33128A4EE54000386D0 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				9F79A33228A4EE5E000386D0 /* TabBar.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		9F915C4828A039D4005EA2E1 = {
@@ -233,7 +238,6 @@
 				9F915C6328A03A5D005EA2E1 /* App */,
 				9F915C6228A03A53005EA2E1 /* Services */,
 				9F915C6528A03A6B005EA2E1 /* Models */,
-				9F915C6928A03A86005EA2E1 /* Modificators */,
 				9F915C6828A03A7C005EA2E1 /* Content */,
 				9F915C6728A03A73005EA2E1 /* Modules */,
 				9F915C6628A03A6E005EA2E1 /* Helpers */,
@@ -258,6 +262,7 @@
 		9F915C6228A03A53005EA2E1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9FF5E39228B5174100843011 /* AuthService */,
 				9F915C6E28A03B42005EA2E1 /* API */,
 				9F915C6D28A03B3A005EA2E1 /* Storage */,
 			);
@@ -302,8 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				9F475D2328AD35140095962C /* PhotosView */,
-				9F42E47828A69C2300DC0CBB /* GroupsListView */,
-				9F2CA80F28A1B376004ADF9F /* FriendsListView */,
+				9F42E47828A69C2300DC0CBB /* GroupsView */,
+				9F2CA80F28A1B376004ADF9F /* FriendsView */,
 				9F915C8228A0422F005EA2E1 /* WebView */,
 			);
 			path = Modules;
@@ -314,13 +319,6 @@
 			children = (
 			);
 			path = Content;
-			sourceTree = "<group>";
-		};
-		9F915C6928A03A86005EA2E1 /* Modificators */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modificators;
 			sourceTree = "<group>";
 		};
 		9F915C6A28A03AE8005EA2E1 /* LocalModel */ = {
@@ -398,6 +396,7 @@
 		9FA073DA28AE1E6B00995B9B /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				9F28601E28AFD29B005BE590 /* TabBarCoordinator */,
 				9F160BFD28AE7BE000C8FD20 /* GroupsCoordinator */,
 				9FA073DB28AE1E7D00995B9B /* MainCoordinator.swift */,
 				9FE4C0E128AE3B7000D858C8 /* Main */,
@@ -408,18 +407,36 @@
 		9FA073E328AE1FE600995B9B /* GroupInfoView */ = {
 			isa = PBXGroup;
 			children = (
-				9FA073E428AE200000995B9B /* GroupInfoView.swift */,
-				9FA073E728AE201A00995B9B /* GroupInfoViewModel.swift */,
+				9FB7D60128B7731700126B3F /* Components */,
+				9FB7D60228B7735D00126B3F /* GroupInfoView.swift */,
+				9F6679E528B79546001BFEEA /* GroupInfoViewModel.swift */,
 			);
 			path = GroupInfoView;
+			sourceTree = "<group>";
+		};
+		9FB7D60128B7731700126B3F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9FA073E428AE200000995B9B /* GroupInfoCellView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9FE4C0E128AE3B7000D858C8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				9FE4C0E228AE3B8300D858C8 /* ContentCoordinator.swift */,
+				9F6679E728B79D9C001BFEEA /* LoginRouter.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		9FF5E39228B5174100843011 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				9FF5E39328B5175800843011 /* AuthService.swift */,
+			);
+			path = AuthService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -505,7 +522,7 @@
 			files = (
 				9F79A32228A4D257000386D0 /* FriendModelMapper.swift in Sources */,
 				9F915C7228A03B9A005EA2E1 /* Provider.swift in Sources */,
-				9FA073E528AE200000995B9B /* GroupInfoView.swift in Sources */,
+				9FA073E528AE200000995B9B /* GroupInfoCellView.swift in Sources */,
 				9F79A32C28A4DE71000386D0 /* FriendCellView.swift in Sources */,
 				9FA073EA28AE208F00995B9B /* GroupRouter.swift in Sources */,
 				9F42E47228A69A8600DC0CBB /* BaseAPIService.swift in Sources */,
@@ -517,6 +534,8 @@
 				9F475D2828AD354C0095962C /* PhotoViewModel.swift in Sources */,
 				9F79A32428A4D291000386D0 /* Extensions+String.swift in Sources */,
 				9F2CA81328A1B39F004ADF9F /* FriendsListViewModel.swift in Sources */,
+				9F6679E828B79D9C001BFEEA /* LoginRouter.swift in Sources */,
+				9F28602028AFD2A9005BE590 /* TabBarCoordinator.swift in Sources */,
 				9F915C8628A04341005EA2E1 /* ContentViewModel.swift in Sources */,
 				9FA073DC28AE1E7D00995B9B /* MainCoordinator.swift in Sources */,
 				9F42E47F28A69C7100DC0CBB /* GroupCellView.swift in Sources */,
@@ -529,14 +548,15 @@
 				9F2CA81128A1B390004ADF9F /* FriendsListView.swift in Sources */,
 				9F475D2A28AD37FA0095962C /* ServerPhotoModel.swift in Sources */,
 				9F915C8128A03F12005EA2E1 /* APIError.swift in Sources */,
+				9FB7D60328B7735D00126B3F /* GroupInfoView.swift in Sources */,
 				9F475D2528AD35330095962C /* PhotoView.swift in Sources */,
 				9F79A32028A4D1FF000386D0 /* BaseModelMapper.swift in Sources */,
 				9F160BFF28AE7BF200C8FD20 /* GroupsCoordinator.swift in Sources */,
+				9FF5E39428B5175800843011 /* AuthService.swift in Sources */,
 				9F915C8428A04251005EA2E1 /* RepresentableWebView.swift in Sources */,
 				9F915C7B28A03C48005EA2E1 /* BaseAPI.swift in Sources */,
-				9F79A33328A4EE5E000386D0 /* TabBar.swift in Sources */,
+				9F6679E628B79546001BFEEA /* GroupInfoViewModel.swift in Sources */,
 				9FE4C0E328AE3B8300D858C8 /* ContentCoordinator.swift in Sources */,
-				9FA073E828AE201A00995B9B /* GroupInfoViewModel.swift in Sources */,
 				9F42E47C28A69C5500DC0CBB /* GroupsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,16 +11,29 @@ import Stinsen
 
 final class MainCoordinator: NavigationCoordinatable {
     
+    
     var stack: NavigationStack<MainCoordinator>
     
     @Root var main = loadMain
-    
-    @ViewBuilder func sharedView(_ view: AnyView) -> some View {
-        view
-    }
+    @Root var tabBar = makeTabBar
     
     init(){
-        stack = NavigationStack(initial: \MainCoordinator.main)
+        if AuthService.shared.status.value {
+            stack = NavigationStack(initial: \MainCoordinator.tabBar)
+        } else {
+            stack = NavigationStack(initial: \MainCoordinator.main)
+        }
+    }
+    
+    @ViewBuilder func customize(_ view: AnyView) -> some View {
+        view
+            .onReceive(AuthService.shared.status) { status in
+                if status {
+                    self.root(\.tabBar)
+                } else {
+                    self.root(\.main)
+                }
+            }
     }
     
 }
@@ -31,5 +44,9 @@ extension MainCoordinator {
         let coordinator = ContentCoordinator()
         let stack = NavigationViewCoordinator(coordinator)
         return stack
+    }
+    
+    func makeTabBar() -> TabBarCoordinator {
+        TabBarCoordinator()
     }
 }

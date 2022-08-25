@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupsListView: View {
-    @StateObject var viewModel = GroupsListViewModel()
+    @StateObject var viewModel:  GroupsListViewModel
     
     var body: some View {
         ScrollView{
@@ -49,6 +49,6 @@ extension GroupsListView {
 
 struct GroupsListView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsListView()
+        GroupsListView(viewModel: GroupsListViewModel(router: GroupsCoordinator()))
     }
 }

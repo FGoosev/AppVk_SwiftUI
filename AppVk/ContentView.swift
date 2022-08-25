@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = ContentViewModel(router: ContentCoordinator())
+    @StateObject var viewModel: ContentViewModel
     var body: some View {
-        if !viewModel.output.showFriends {
+        if !AuthService.shared.status.value{
             webView
-        } else {
-            TabBar()
         }
     }
 }
@@ -29,6 +27,6 @@ private extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel(router: ContentCoordinator()))
+        ContentView(viewModel: ContentViewModel(router: ContentCoordinator() as! LoginRouter))
     }
 }
