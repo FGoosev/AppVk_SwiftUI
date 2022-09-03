@@ -66,7 +66,7 @@ struct WebViewRepresentable: UIViewRepresentable {
                         }
                     }
                 }
-                
+                AuthService.shared.status.send(true)
                 onComplited.send()
             }
         }

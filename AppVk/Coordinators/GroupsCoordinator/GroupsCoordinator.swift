@@ -27,7 +27,7 @@ final class GroupsCoordinator: NavigationCoordinatable{
 extension GroupsCoordinator {
     
     @ViewBuilder func loadGroupView() -> some View {
-        let viewModel = GroupsListViewModel(router: self)
+        let viewModel = GroupsListViewModel(router: self, apiService: BaseAPIService())
         GroupsListView(viewModel: viewModel)
     }
     

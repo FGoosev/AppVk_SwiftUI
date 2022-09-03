@@ -15,11 +15,12 @@ struct GroupsListView: View {
             header
             groupsList
         }
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: onAppearSend)
     }
 }
 
-extension GroupsListView {
+private extension GroupsListView {
     
     var header: some View{
         SearchTextField(search: .constant(""))
@@ -31,12 +32,13 @@ extension GroupsListView {
                 .onTapGesture {
                     uploadModelId(id: model.id)
                 }
+                
                 .padding(.bottom, 10)
         }
     }
 }
 
-extension GroupsListView {
+private extension GroupsListView {
     
     func onAppearSend(){
         viewModel.input.onAppear.send()
@@ -49,6 +51,6 @@ extension GroupsListView {
 
 struct GroupsListView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsListView(viewModel: GroupsListViewModel(router: GroupsCoordinator()))
+        GroupsListView(viewModel: GroupsListViewModel(router: GroupsCoordinator(), apiService: BaseAPIService()))
     }
 }

@@ -10,7 +10,7 @@ import Combine
 
 
 final class GroupInfoViewModel: ObservableObject{
-    @Published var output = Output()
+    @Published var output: Output
     let input: Input
     
     private var cancellable = Set<AnyCancellable>()
@@ -28,6 +28,6 @@ extension GroupInfoViewModel {
     }
     
     struct Output {
-        var modelId: Int = 0
+        let modelId: Int
     }
 }

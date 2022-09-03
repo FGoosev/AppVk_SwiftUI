@@ -10,6 +10,7 @@ import Foundation
 protocol GroupRouter: AnyObject {
     
     func goToInfoGroup(modelId: Int)
+    
 }
 
 extension GroupsCoordinator: GroupRouter {
@@ -17,5 +18,4 @@ extension GroupsCoordinator: GroupRouter {
     func goToInfoGroup(modelId: Int){
         self.route(to: \.infoGroup, modelId)
     }
-    
 }

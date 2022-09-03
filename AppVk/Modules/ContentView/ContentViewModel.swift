@@ -12,13 +12,15 @@ final class ContentViewModel: ObservableObject {
     
     let input = Input()
     @Published var output = Output()
+    
     private weak var router: LoginRouter?
-    var cancellable = Set<AnyCancellable>()
+    private var cancellable = Set<AnyCancellable>()
     
     
     init(router: LoginRouter?) {
-        bind()
         self.router = router
+        
+        bind()
     }
     
     func bind(){

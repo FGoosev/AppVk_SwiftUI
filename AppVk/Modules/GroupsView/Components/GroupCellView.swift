@@ -12,24 +12,22 @@ struct GroupCellView: View {
     let model: GroupModel
     
     var body: some View {
-        Button(action: {}){
-            HStack{
-                Image(uiImage: model.photo50.load())
-                    .clipShape(Circle())
-                VStack{
-                    Text(model.name)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(model.status)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                }
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
+        HStack{
+            Image(uiImage: model.photo50.load())
+                .clipShape(Circle())
+            VStack{
+                Text(model.name)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text(model.status)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
             }
-            .padding(10)
-            .frame(height: 60)
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(.gray)
         }
+        .padding(10)
+        .frame(height: 60)
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FriendsListView: View {
     
-    @StateObject var viewModel = FriendsListViewModel()
+    @StateObject var viewModel: FriendsListViewModel
     var body: some View {
         ScrollView{
             header
@@ -46,6 +46,6 @@ extension FriendsListView {
 
 struct FriendsListView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsListView(viewModel: FriendsListViewModel())
+        FriendsListView(viewModel: FriendsListViewModel(router: FriendsCoordinator(), api: BaseAPIService()))
     }
 }

@@ -13,7 +13,7 @@ struct AuthService {
     
     static var shared = AuthService()
     
-    let status: CurrentValueSubject<Bool, Never>
+    var status: CurrentValueSubject<Bool, Never>
     private init(){
         self.status = CurrentValueSubject<Bool, Never>(LocalStorage.current.status ?? false)
     }

@@ -13,14 +13,18 @@ import CombineExt
 
 final class FriendsListViewModel: ObservableObject {
     
-    let apiService = BaseAPIService()
+    let apiService: FriendsListAPIProtocol
+    
+    private weak var router: FriendsRouter?
     
     let input = Input()
     @Published var output = Output()
     
     private var cancellable = Set<AnyCancellable>()
     
-    init() {
+    init(router: FriendsRouter?, api: FriendsListAPIProtocol) {
+        self.router = router
+        self.apiService = api
         setubBindings()
     }
     

@@ -7,9 +7,8 @@
 
 import Foundation
 
-
-struct ServerResponse: Decodable {
-    let response: ServerFriendResponse
+struct ServerResponse<Content: Decodable>: Decodable {
+    let response: Content
 }
 
 struct ServerFriendResponse: Decodable {

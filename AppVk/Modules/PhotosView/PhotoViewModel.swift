@@ -7,16 +7,21 @@
 
 import Foundation
 import Combine
+import CombineExt
 
 final class PhotoViewModel: ObservableObject {
     
-    let apiService = BaseAPIService()
+    let apiService: PhotosListAPIProtocol
     
     let input = Input()
     @Published var output = Output()
+    
+    private weak var router: PhotosRouter?
     private var cancellable = Set<AnyCancellable>()
     
-    init(){
+    init(router: PhotosRouter?, api: PhotosListAPIProtocol){
+        self.router = router
+        self.apiService = api
         bind()
     }
     
@@ -25,7 +30,31 @@ final class PhotoViewModel: ObservableObject {
     }
     
     func bindRequest(){
+        let request = input.onAppear
+            .map{ [unowned self] in
+                self.apiService.getPhotos()
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
         
+        request
+            .values()
+            .sink{ [weak self] in
+                self?.output.photos = $0
+            }
+            .store(in: &cancellable)
+        
+        
+        request
+            .failures()
+            .sink{
+                switch $0 {
+                case .badQuery: print("badQuery")
+                case .notFound: print("notFound")
+                }
+            }
+            .store(in: &cancellable)
     }
 }
 
@@ -36,7 +65,7 @@ extension PhotoViewModel {
     }
     
     struct Output{
-        
+        var photos: [PhotoModel] = []
     }
     
 }

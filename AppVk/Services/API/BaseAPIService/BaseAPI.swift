@@ -11,6 +11,8 @@ import Moya
 enum BaseAPI {
     case getFriends
     case getGroups
+    case getPhotos
+    case getGroupInfo
 }
 
 
@@ -23,10 +25,18 @@ extension BaseAPI: TargetType {
         switch self {
         case .getFriends:
             return "method/friends.get"
+            
         case .getGroups:
             return "method/groups.get"
+            
+        case .getPhotos:
+            return "method/photos.get"
+        
+        case .getGroupInfo:
+            return "method/groups.getById"
         }
     }
+    
     
     var method: Moya.Method {
         .get
@@ -50,7 +60,26 @@ extension BaseAPI: TargetType {
             param["extended"] = 1
             
             return param
+            
+        case .getPhotos:
+            var param: [String: Any] = [:]
+            param["v"] = "5.131"
+            param["access_token"] = LocalStorage.current.token
+            param["extended"] = 1
+            param["album_id"] = "profile"
+            
+            return param
+            
+        case .getGroupInfo:
+            var param: [String: Any] = [:]
+            param["v"] = "5.131"
+            param["access_token"] = LocalStorage.current.token
+            param["fields"] = "description"
+            param["album_id"] = LocalStorage.current.groupId
+            
+            return param
         }
+        
     }
     
     var task: Task {

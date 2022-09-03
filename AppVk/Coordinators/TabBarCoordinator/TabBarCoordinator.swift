@@ -31,8 +31,8 @@ final class TabBarCoordinator: TabCoordinatable {
 
 extension TabBarCoordinator {
     
-    func makeGroups() -> GroupsCoordinator {
-        GroupsCoordinator()
+    func makeGroups() -> NavigationViewCoordinator<GroupsCoordinator> {
+        NavigationViewCoordinator(GroupsCoordinator())
     }
     
     @ViewBuilder func makeGroupsTab(isActive: Bool) -> some View {
@@ -40,9 +40,8 @@ extension TabBarCoordinator {
         Text("Группы")
     }
     
-    @ViewBuilder func makeFriends()  -> some View {
-        let viewModel = FriendsListViewModel()
-        FriendsListView(viewModel: viewModel)
+    func makeFriends()  -> FriendsCoordinator {
+        FriendsCoordinator()
     }
     
     @ViewBuilder func makeFriendsTab(isActive: Bool) -> some View {
@@ -50,9 +49,8 @@ extension TabBarCoordinator {
         Text("Друзья")
     }
     
-    @ViewBuilder func makePhotos() -> some View {
-        let viewModel = PhotoViewModel()
-        PhotoView(viewModel: viewModel)
+    func makePhotos() -> PhotosCoordinator {
+        PhotosCoordinator()
     }
     
     @ViewBuilder func makePhotosTab(isActive: Bool) -> some View {
