@@ -46,6 +46,7 @@ private extension GroupsListView {
     
     func uploadModelId(id: Int){
         viewModel.input.modelId.send(id)
+        //viewModel.input.makeInfoGroup.send()
     }
 }
 

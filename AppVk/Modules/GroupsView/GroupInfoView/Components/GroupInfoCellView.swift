@@ -30,7 +30,7 @@ struct GroupInfoCellView: View {
                     .font(.largeTitle.bold())
                     .foregroundStyle(
                         .linearGradient(
-                            colors: [.black, .black],
+                            colors: [.white, .white],
                             startPoint: .top,
                             endPoint: .bottom
                         )
@@ -39,7 +39,7 @@ struct GroupInfoCellView: View {
             }
             Spacer()
             Text(model.description)
-                .font(.largeTitle.bold())
+                .padding()
                 .foregroundStyle(
                     .linearGradient(
                         colors: [.black, .black],

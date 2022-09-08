@@ -31,8 +31,8 @@ extension GroupsCoordinator {
         GroupsListView(viewModel: viewModel)
     }
     
-    @ViewBuilder func makeInfoGroup(modelId: Int) -> some View {
-        let viewModel = GroupInfoViewModel(modelId: modelId)
+    @ViewBuilder func makeInfoGroup() -> some View {
+        let viewModel = GroupInfoViewModel(apiService: BaseAPIService())
         GroupInfoView(viewModel: viewModel)
     }
     

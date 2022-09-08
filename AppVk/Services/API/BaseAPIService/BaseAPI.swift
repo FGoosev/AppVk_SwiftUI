@@ -13,6 +13,7 @@ enum BaseAPI {
     case getGroups
     case getPhotos
     case getGroupInfo
+    case getAlbums
 }
 
 
@@ -34,6 +35,8 @@ extension BaseAPI: TargetType {
         
         case .getGroupInfo:
             return "method/groups.getById"
+        case .getAlbums:
+            return "method/photos.getAlbums"
         }
     }
     
@@ -75,7 +78,16 @@ extension BaseAPI: TargetType {
             param["v"] = "5.131"
             param["access_token"] = LocalStorage.current.token
             param["fields"] = "description"
-            param["album_id"] = LocalStorage.current.groupId
+            param["group_id"] = LocalStorage.current.groupId
+            
+            return param
+            
+        case .getAlbums:
+            var param: [String: Any] = [:]
+            param["v"] = "5.131"
+            param["access_token"] = LocalStorage.current.token
+            param["need_covers"] = 1
+            param["need_system"] = 1
             
             return param
         }

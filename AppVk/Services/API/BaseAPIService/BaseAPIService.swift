@@ -14,7 +14,7 @@ struct BaseAPIService {
     let provider = Provider<BaseAPI>()
 }
 
-extension BaseAPIService: GroupsListAPIProtocol, FriendsListAPIProtocol, PhotosListAPIProtocol  {
+extension BaseAPIService: GroupsListAPIProtocol, FriendsListAPIProtocol, PhotosListAPIProtocol, AlbumsListAPIProtocol  {
     
     func getFriends() -> AnyPublisher<[FriendModel], APIError> {
         provider.requestPublisher(.getFriends)
@@ -32,7 +32,7 @@ extension BaseAPIService: GroupsListAPIProtocol, FriendsListAPIProtocol, PhotosL
     func getGroups() -> AnyPublisher<[GroupModel], APIError>{
         provider.requestPublisher(.getGroups)
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse<ServerGroupResponse>.self)
+            .map(ServerResponse<ServerGroupsResponse>.self)
             .map{$0.response.items}
             .map{GroupModelMapper().toLocal(list: $0)}
             .mapError({ _ in
@@ -58,24 +58,44 @@ extension BaseAPIService: GroupsListAPIProtocol, FriendsListAPIProtocol, PhotosL
     func getGroupInfo() -> AnyPublisher<[GroupModel], APIError>{
         provider.requestPublisher(.getGroupInfo)
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse<ServerGroupResponse>.self)
-            .map{$0.response.items}
-            .map{GroupModelMapper().toLocal(serverEntity: $0)}
+            .map(ServerResponse<[ServerGroupModel]>.self)
+            .map{$0.response}
+            .map{GroupModelMapper().toLocal(list: $0)}
             .mapError({ _ in
                     .badQuery
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    
+    func getAlbums() -> AnyPublisher<[AlbumModel], APIError> {
+        
+        provider.requestPublisher(.getAlbums)
+            .filterSuccessfulStatusCodes()
+            .map(ServerResponse<ServerAlbumsResponse>.self)
+            .map{$0.response.items}
+            .map{AlbumModelMapper().toLocal(list: $0)}
+            .mapError({ _ in
+                .badQuery
+            })
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+         
+    }
 }
 
 
 protocol GroupsListAPIProtocol{
     func getGroups() -> AnyPublisher<[GroupModel], APIError>
+    func getGroupInfo() -> AnyPublisher<[GroupModel], APIError>
 }
 
 protocol PhotosListAPIProtocol{
     func getPhotos() -> AnyPublisher<[PhotoModel], APIError>
+}
+
+protocol AlbumsListAPIProtocol{
+    func getAlbums() -> AnyPublisher<[AlbumModel], APIError>
 }
 
 protocol FriendsListAPIProtocol{

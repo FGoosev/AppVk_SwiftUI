@@ -27,6 +27,6 @@ private extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: ContentViewModel(router: ContentCoordinator() as! LoginRouter))
+        ContentView(viewModel: ContentViewModel(router: ContentCoordinator()))
     }
 }

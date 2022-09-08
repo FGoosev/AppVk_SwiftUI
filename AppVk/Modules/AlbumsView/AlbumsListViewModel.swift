@@ -9,9 +9,9 @@ import Foundation
 import Combine
 import CombineExt
 
-final class PhotoViewModel: ObservableObject {
+final class AlbumsListViewModel: ObservableObject {
     
-    let apiService: PhotosListAPIProtocol
+    let apiService: AlbumsListAPIProtocol
     
     let input = Input()
     @Published var output = Output()
@@ -19,7 +19,7 @@ final class PhotoViewModel: ObservableObject {
     private weak var router: PhotosRouter?
     private var cancellable = Set<AnyCancellable>()
     
-    init(router: PhotosRouter?, api: PhotosListAPIProtocol){
+    init(router: PhotosRouter?, api: AlbumsListAPIProtocol){
         self.router = router
         self.apiService = api
         bind()
@@ -32,7 +32,7 @@ final class PhotoViewModel: ObservableObject {
     func bindRequest(){
         let request = input.onAppear
             .map{ [unowned self] in
-                self.apiService.getPhotos()
+                self.apiService.getAlbums()
                     .materialize()
             }
             .switchToLatest()
@@ -41,7 +41,7 @@ final class PhotoViewModel: ObservableObject {
         request
             .values()
             .sink{ [weak self] in
-                self?.output.photos = $0
+                self?.output.albums = $0
             }
             .store(in: &cancellable)
         
@@ -58,14 +58,14 @@ final class PhotoViewModel: ObservableObject {
     }
 }
 
-extension PhotoViewModel {
+extension AlbumsListViewModel {
     
     struct Input{
         let onAppear = PassthroughSubject<Void, Never>()
     }
     
     struct Output{
-        var photos: [PhotoModel] = []
+        var albums: [AlbumModel] = []
     }
     
 }

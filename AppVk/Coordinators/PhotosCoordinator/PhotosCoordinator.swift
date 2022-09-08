@@ -13,7 +13,7 @@ final class PhotosCoordinator: NavigationCoordinatable, PhotosRouter {
     
     let stack = NavigationStack(initial: \PhotosCoordinator.start)
     
-    @Root var start = loadPhotosView
+    @Root var start = loadAlbumsView
         
 #if DEBUG
     deinit {
@@ -24,9 +24,9 @@ final class PhotosCoordinator: NavigationCoordinatable, PhotosRouter {
 
 extension PhotosCoordinator{
     
-    @ViewBuilder func loadPhotosView() -> some View {
-        let viewModel = PhotoViewModel(router: self, api: BaseAPIService())
-        PhotoView(viewModel: viewModel)
+    @ViewBuilder func loadAlbumsView() -> some View {
+        let viewModel = AlbumsListViewModel(router: self, api: BaseAPIService())
+        AlbumsListView(viewModel: viewModel)
     }
 }
 

@@ -8,6 +8,11 @@
 import Foundation
 
 
+struct ServerGroupsResponse: Decodable {
+    let count: Int
+    let items: [ServerGroupModel]
+}
+
 struct ServerGroupResponse: Decodable {
     let count: Int
     let items: [ServerGroupModel]

@@ -29,6 +29,7 @@ final class GroupsListViewModel: ObservableObject{
     func setupBindings() {
         bindRequest()
         bindInfoGroup()
+        bindRequestInfoGroup()
     }
     
     func bindRequest() {
@@ -63,12 +64,39 @@ final class GroupsListViewModel: ObservableObject{
     
     func bindInfoGroup() {
         input.modelId.sink { value in
-            
-            self.router?.goToInfoGroup(modelId: value)
+            self.router?.goToInfoGroup()
             LocalStorage.current.groupId = value
             print(value)
         }
         .store(in: &cancellable)
+    }
+    
+    func bindRequestInfoGroup() {
+        let request = input.makeInfoGroup
+            .map{ [unowned self] in
+                self.apiService.getGroupInfo()
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
+        
+        request
+            .values()
+            .sink{ [weak self] in
+                self?.output.groupInfo = $0
+            }
+            .store(in: &cancellable)
+        
+        
+        request
+            .failures()
+            .sink{
+                switch $0 {
+                case .badQuery: print("badQuery")
+                case .notFound: print("notFound")
+                }
+            }
+            .store(in: &cancellable)
     }
 }
 
@@ -77,11 +105,12 @@ extension GroupsListViewModel {
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
         let modelId = PassthroughSubject<Int, Never>()
-        let goToInfo = PassthroughSubject<Void, Never>()
+        let makeInfoGroup = PassthroughSubject<Void, Never>()
     }
     
     struct Output {
         var groups: [GroupModel] = []
-        var modelId: Int = 0
+        var modelId: Int?
+        var groupInfo: [GroupModel] = []
     }
 }
