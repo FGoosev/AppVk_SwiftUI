@@ -69,7 +69,7 @@ extension BaseAPI: TargetType {
             param["v"] = "5.131"
             param["access_token"] = LocalStorage.current.token
             param["extended"] = 1
-            param["album_id"] = "profile"
+            param["album_id"] = LocalStorage.current.albumId
             
             return param
             
@@ -88,6 +88,7 @@ extension BaseAPI: TargetType {
             param["access_token"] = LocalStorage.current.token
             param["need_covers"] = 1
             param["need_system"] = 1
+            param["count"] = 3
             
             return param
         }

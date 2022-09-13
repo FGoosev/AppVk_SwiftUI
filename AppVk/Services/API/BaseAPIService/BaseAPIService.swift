@@ -69,7 +69,6 @@ extension BaseAPIService: GroupsListAPIProtocol, FriendsListAPIProtocol, PhotosL
     }
     
     func getAlbums() -> AnyPublisher<[AlbumModel], APIError> {
-        
         provider.requestPublisher(.getAlbums)
             .filterSuccessfulStatusCodes()
             .map(ServerResponse<ServerAlbumsResponse>.self)

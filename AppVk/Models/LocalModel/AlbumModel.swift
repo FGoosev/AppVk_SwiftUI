@@ -9,36 +9,37 @@ import Foundation
 
 struct AlbumModel: Identifiable {
     let id: Int
-    let thumbId: Int
     let ownerId: Int
-    let title: String
-    let description: String
-    let created: String
-    let updated: String
     let size: Int
-    let canUpload: Int
-    let thumbSrc: String
-    let thumbIsLast: Int
+    let title: String
+    let created: String
+    let description: String
     let canDelete: Bool
-    let thumbSource: String
+    let privacyComment: ServerPrivacy
+    let privacyView: ServerPrivacy
+    let thumbID: Int
+    let thumbIsLast: Int
+    let thumbSrc: String
+    let updated: Int
 }
 
 extension AlbumModel {
     static func mock() -> Self {
+        let serverOwnersLists: ServerOwnersLists = ServerOwnersLists(allowed: [], excluded: [])
+        let serverPrivacy: ServerPrivacy = ServerPrivacy(category: "onle_me", lists: serverOwnersLists, owners: serverOwnersLists)
+        
         return AlbumModel(id: 1,
-                   thumbId: 1,
-                   ownerId: 1,
-                   title: "title",
-                   description: "description",
-                   created: "08.08.2022",
-                   updated: "08.08.2022",
-                   size: 5,
-                   canUpload: 1,
-                   thumbSrc: "https://sun7.userapi.com/sun7-8/s/v1/ig2/3r8nwOMcXfK9x-QyakZCZBC7Is9hCu-ZeycmMYTm0oJMgSYDg_myTEA7z_MmcrF41xs64CACXQGSbzyn32qhgxfc.jpg?size=130x130&quality=96&type=album",
-                    thumbIsLast: 1,
-                    canDelete: true,
-                    thumbSource: "thumbSource"
-                          
-        )
+                          ownerId: 1,
+                          size: 1,
+                          title: "title",
+                          created: "created",
+                          description: "description",
+                          canDelete: false,
+                          privacyComment: serverPrivacy,
+                          privacyView: serverPrivacy,
+                          thumbID: 1,
+                          thumbIsLast: 1,
+                          thumbSrc: "https://vk.com/images/camera_50.png",
+                          updated: 1)
     }
 }

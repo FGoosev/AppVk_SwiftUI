@@ -17,6 +17,7 @@ struct AlbumsListView: View {
             albumList
         }
         .onAppear(perform: onAppearSend)
+        .frame(width: 250)
     }
 }
 
@@ -24,12 +25,21 @@ private extension AlbumsListView{
     func onAppearSend() {
         viewModel.input.onAppear.send()
     }
+    
+    func makeAlbumPhotosSend(id: Int) {
+        viewModel.input.albumId.send(id)
+    }
 }
 
 private extension AlbumsListView {
     var albumList: some View {
         ForEach(viewModel.output.albums){ model in
             AlbumCellView(model: model)
+                .onTapGesture {
+                    makeAlbumPhotosSend(id: model.id)
+                }
+                .frame(width: 250)
+                .padding(.bottom, 50)
         }
     }
 }

@@ -8,41 +8,61 @@
 import Foundation
 
 
-struct ServerAlbumsResponse: Decodable {
+struct ServerAlbumsResponse: Codable {
     let count: Int
     let items: [ServerAlbumModel]
 }
 
-struct ServerAlbumModel: Decodable {
+struct ServerAlbumModel: Codable {
     let id: Int?
-    let thumbId: Int?
     let ownerId: Int?
-    let title: String?
-    let description: String?
-    let created: String?
-    let updated: String?
     let size: Int?
-    let canUpload: Int?
-    let thumbSrc: String?
-    let thumbIsLast: Int?
+    let title: String?
+    let created: String?
+    let description: String?
     let canDelete: Bool?
-    let thumbSource: String?
- 
+    let privacyComment: ServerPrivacy?
+    let privacyView: ServerPrivacy?
+    let thumbID: Int?
+    let thumbIsLast: Int?
+    let thumbSrc: String?
+    let updated: Int?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case thumbId = "thumb_id"
         case ownerId = "owner_id"
-        case title = "title"
-        case description = "description"
-        case created = "created"
-        case updated = "updated"
         case size = "size"
-        case canUpload = "can_upload"
-        case thumbSrc = "thumb_src"
-        case thumbIsLast = "thumb_is_last"
+        case title = "title"
+        case created = "created"
+        case description = "description"
         case canDelete = "can_delete"
-        case thumbSource = "thumb_source"
+        case privacyComment = "privacy_comment"
+        case privacyView = "privacy_view"
+        case thumbID = "thumb_id"
+        case thumbIsLast = "thumb_is_last"
+        case thumbSrc = "thumb_src"
+        case updated = "updated"
     }
 }
 
+struct ServerPrivacy: Codable {
+    let category: String?
+    let lists: ServerOwnersLists?
+    let owners: ServerOwnersLists?
+    
+    enum CodingKeys: String, CodingKey {
+        case category = "category"
+        case lists = "lists"
+        case owners = "owners"
+    }
+}
+
+struct ServerOwnersLists: Codable {
+    let allowed: [Int]?
+    let excluded: [Int]?
+    
+    enum CodingKeys: String, CodingKey {
+        case allowed = "allowed"
+        case excluded = "excluded"
+    }
+}

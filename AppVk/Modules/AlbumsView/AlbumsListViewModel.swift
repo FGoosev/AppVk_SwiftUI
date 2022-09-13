@@ -27,6 +27,7 @@ final class AlbumsListViewModel: ObservableObject {
     
     func bind(){
         bindRequest()
+        bindAlbumId()
     }
     
     func bindRequest(){
@@ -56,12 +57,21 @@ final class AlbumsListViewModel: ObservableObject {
             }
             .store(in: &cancellable)
     }
+    
+    func bindAlbumId(){
+        input.albumId.sink { value in
+            self.router?.goToAlbumPhotos()
+            LocalStorage.current.albumId = value
+        }
+        .store(in: &cancellable)
+    }
 }
 
 extension AlbumsListViewModel {
     
     struct Input{
         let onAppear = PassthroughSubject<Void, Never>()
+        let albumId = PassthroughSubject<Int, Never>()
     }
     
     struct Output{

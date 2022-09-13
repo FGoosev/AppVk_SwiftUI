@@ -10,18 +10,17 @@ import Foundation
 final class AlbumModelMapper: BaseModelMapper<ServerAlbumModel, AlbumModel> {
     override func toLocal(serverEntity: ServerAlbumModel) -> AlbumModel {
         AlbumModel(id: serverEntity.id ?? 0,
-                   thumbId: serverEntity.thumbId ?? 0,
                    ownerId: serverEntity.ownerId ?? 0,
-                   title: serverEntity.title.orEmpty,
-                   description: serverEntity.description.orEmpty,
-                   created: serverEntity.created.orEmpty,
-                   updated: serverEntity.updated.orEmpty,
                    size: serverEntity.size ?? 0,
-                   canUpload: serverEntity.canUpload ?? 0,
-                   thumbSrc: serverEntity.thumbSrc.orEmpty,
-                   thumbIsLast: serverEntity.thumbIsLast ?? 0,
+                   title: serverEntity.title.orEmpty,
+                   created: serverEntity.created.orEmpty,
+                   description: serverEntity.description.orEmpty,
                    canDelete: serverEntity.canDelete ?? false,
-                   thumbSource: serverEntity.thumbSource.orEmpty
-        )
+                   privacyComment: serverEntity.privacyComment ?? ServerPrivacy(category: "", lists: ServerOwnersLists(allowed: [], excluded: []), owners: ServerOwnersLists(allowed: [], excluded: [])),
+                   privacyView: serverEntity.privacyView ?? ServerPrivacy(category: "", lists: ServerOwnersLists(allowed: [], excluded: []), owners: ServerOwnersLists(allowed: [], excluded: [])),
+                   thumbID: serverEntity.thumbID ?? 0,
+                   thumbIsLast: serverEntity.thumbIsLast ?? 0,
+                   thumbSrc: serverEntity.thumbSrc.orEmpty,
+                   updated: serverEntity.updated ?? 0)
     }
 }

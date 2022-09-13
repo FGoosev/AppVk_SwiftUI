@@ -15,14 +15,14 @@ struct AlbumCellView: View {
             KFImage(URL(string: model.thumbSrc))
                 .resizable()
                 .cornerRadius(20)
-                .frame(width: 170)
+                .frame(width: 250, height: 250)
                 .scaledToFit()
             VStack(alignment: .leading){
                 Text(model.title)
                     .bold()
             }
             .padding()
-            .frame(width: 170,height: 30, alignment: .leading)
+            .frame(width: 250,height: 30, alignment: .leading)
             .background(.ultraThinMaterial)
             .cornerRadius(20)
         }
