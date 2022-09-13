@@ -7,16 +7,14 @@
 
 import SwiftUI
 
+
 struct AlbumsListView: View {
     
     @StateObject var viewModel: AlbumsListViewModel
-    var columns = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     
     var body: some View {
         ScrollView{
-            LazyVGrid(columns: columns, spacing: 20){
-                albumList
-            }
+            albumList
         }
         .onAppear(perform: onAppearSend)
     }

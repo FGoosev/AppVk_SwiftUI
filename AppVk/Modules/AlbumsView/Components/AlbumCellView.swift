@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct AlbumCellView: View {
     let model : AlbumModel
     var body: some View {
         ZStack(alignment: .bottom){
-            Image(uiImage: model.thumbSrc.load())
+            KFImage(URL(string: model.thumbSrc))
                 .resizable()
                 .cornerRadius(20)
                 .frame(width: 170)

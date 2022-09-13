@@ -25,8 +25,9 @@ struct ServerAlbumModel: Decodable {
     let canUpload: Int?
     let thumbSrc: String?
     let thumbIsLast: Int?
-    let privacyComment: ServerPrivacyComment?
-    let privacyView: ServerPrivacyView?
+    let canDelete: Bool?
+    let thumbSource: String?
+ 
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -39,54 +40,9 @@ struct ServerAlbumModel: Decodable {
         case size = "size"
         case canUpload = "can_upload"
         case thumbSrc = "thumb_src"
-        case privacyComment = "privacy_comment"
-        case privacyView = "privacy_view"
         case thumbIsLast = "thumb_is_last"
+        case canDelete = "can_delete"
+        case thumbSource = "thumb_source"
     }
 }
-
-struct ServerPrivacyComment: Codable {
-    let category: String?
-    let owners: ServerOwners?
-    let lists: ServerLists?
-    
-    enum CodingKeys: String, CodingKey {
-        case category = "category"
-        case owners = "owners"
-        case lists = "lists"
-    }
-}
-
-struct ServerOwners: Codable {
-    let allowed: [String]?
-    let excluded: [String]?
-    
-    enum CodingKeys: String, CodingKey {
-        case allowed = "allowed"
-        case excluded = "excluded"
-    }
-}
-
-struct ServerLists: Codable {
-    let allowed: [String]?
-    let excluded: [String]?
-    
-    enum CodingKeys: String, CodingKey {
-        case allowed = "allowed"
-        case excluded = "excluded"
-    }
-}
-
-struct ServerPrivacyView: Codable {
-    let category: String?
-    let owners: ServerOwners?
-    let lists: ServerLists?
-    
-    enum CodingKeys: String, CodingKey {
-        case category = "category"
-        case owners = "owners"
-        case lists = "lists"
-    }
-}
-
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962322D728CDE7A300F53732 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 962322D628CDE7A300F53732 /* Kingfisher */; };
+		962322DA28CDE9C500F53732 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962322D928CDE9C500F53732 /* PhotoListView.swift */; };
+		962322DD28CDECC700F53732 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962322DC28CDECC700F53732 /* ImagePreview.swift */; };
 		96727D7228CA200E009EA01B /* AlbumCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96727D7128CA200E009EA01B /* AlbumCellView.swift */; };
 		96C0E3B928C5B5320090B108 /* ServerAlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0E3B828C5B5320090B108 /* ServerAlbumModel.swift */; };
 		96C0E3BC28C5B6CB0090B108 /* AlbumModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C0E3BB28C5B6CB0090B108 /* AlbumModelMapper.swift */; };
@@ -65,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		962322D928CDE9C500F53732 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		962322DC28CDECC700F53732 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		96727D7128CA200E009EA01B /* AlbumCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCellView.swift; sourceTree = "<group>"; };
 		96C0E3B828C5B5320090B108 /* ServerAlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerAlbumModel.swift; sourceTree = "<group>"; };
 		96C0E3BB28C5B6CB0090B108 /* AlbumModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModelMapper.swift; sourceTree = "<group>"; };
@@ -128,12 +133,31 @@
 				9F79A32928A4D5A3000386D0 /* CombineExt in Frameworks */,
 				9F44AA4D28A178ED0057BD2F /* CombineMoya in Frameworks */,
 				9FA073DF28AE1EB600995B9B /* Stinsen in Frameworks */,
+				962322D728CDE7A300F53732 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		962322D828CDE9A700F53732 /* PhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				962322DB28CDEA1E00F53732 /* Components */,
+				962322D928CDE9C500F53732 /* PhotoListView.swift */,
+			);
+			path = PhotoView;
+			sourceTree = "<group>";
+		};
+		962322DB28CDEA1E00F53732 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9F9C64AF28BCF83A001010C7 /* PhotoCellView.swift */,
+				962322DC28CDECC700F53732 /* ImagePreview.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		96C0E3BA28C5B6BC0090B108 /* AlbumModelMapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +235,6 @@
 		9F475D2628AD35350095962C /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9F9C64AF28BCF83A001010C7 /* PhotoCellView.swift */,
 				96727D7128CA200E009EA01B /* AlbumCellView.swift */,
 			);
 			path = Components;
@@ -379,6 +402,7 @@
 		9F915C6728A03A73005EA2E1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				962322D828CDE9A700F53732 /* PhotoView */,
 				9F6679E928B7A0F3001BFEEA /* ContentView */,
 				9F475D2328AD35140095962C /* AlbumsView */,
 				9F42E47828A69C2300DC0CBB /* GroupsView */,
@@ -541,6 +565,7 @@
 				9F44AA4E28A178ED0057BD2F /* Moya */,
 				9F79A32828A4D5A3000386D0 /* CombineExt */,
 				9FA073DE28AE1EB600995B9B /* Stinsen */,
+				962322D628CDE7A300F53732 /* Kingfisher */,
 			);
 			productName = AppVk;
 			productReference = 9F915C5128A039D4005EA2E1 /* AppVk.app */;
@@ -574,6 +599,7 @@
 				9F44AA4B28A178ED0057BD2F /* XCRemoteSwiftPackageReference "Moya" */,
 				9F79A32728A4D5A3000386D0 /* XCRemoteSwiftPackageReference "CombineExt" */,
 				9FA073DD28AE1EB600995B9B /* XCRemoteSwiftPackageReference "stinsen" */,
+				962322D528CDE7A300F53732 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 9F915C5228A039D4005EA2E1 /* Products */;
 			projectDirPath = "";
@@ -630,6 +656,7 @@
 				9F42E47A28A69C3F00DC0CBB /* GroupsListViewModel.swift in Sources */,
 				9F9C64B028BCF83A001010C7 /* PhotoCellView.swift in Sources */,
 				9F42E46D28A6918F00DC0CBB /* GroupModel.swift in Sources */,
+				962322DA28CDE9C500F53732 /* PhotoListView.swift in Sources */,
 				9F79A33028A4E605000386D0 /* SearchTextField.swift in Sources */,
 				9F915C7F28A03CE6005EA2E1 /* Consts.swift in Sources */,
 				9F9D4E0828A253D5002162E0 /* ServerFriendModel.swift in Sources */,
@@ -640,6 +667,7 @@
 				9F915C8128A03F12005EA2E1 /* APIError.swift in Sources */,
 				9FB7D60328B7735D00126B3F /* GroupInfoView.swift in Sources */,
 				9F475D2528AD35330095962C /* AlbumsListView.swift in Sources */,
+				962322DD28CDECC700F53732 /* ImagePreview.swift in Sources */,
 				96C0E3BC28C5B6CB0090B108 /* AlbumModelMapper.swift in Sources */,
 				9F79A32028A4D1FF000386D0 /* BaseModelMapper.swift in Sources */,
 				9F160BFF28AE7BF200C8FD20 /* GroupsCoordinator.swift in Sources */,
@@ -852,6 +880,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		962322D528CDE7A300F53732 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = exactVersion;
+				version = 7.3.2;
+			};
+		};
 		9F44AA4B28A178ED0057BD2F /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya";
@@ -879,6 +915,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		962322D628CDE7A300F53732 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962322D528CDE7A300F53732 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		9F44AA4C28A178ED0057BD2F /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9F44AA4B28A178ED0057BD2F /* XCRemoteSwiftPackageReference "Moya" */;
