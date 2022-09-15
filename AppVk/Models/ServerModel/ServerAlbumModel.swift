@@ -21,8 +21,6 @@ struct ServerAlbumModel: Codable {
     let created: String?
     let description: String?
     let canDelete: Bool?
-    let privacyComment: ServerPrivacy?
-    let privacyView: ServerPrivacy?
     let thumbID: Int?
     let thumbIsLast: Int?
     let thumbSrc: String?
@@ -36,8 +34,6 @@ struct ServerAlbumModel: Codable {
         case created = "created"
         case description = "description"
         case canDelete = "can_delete"
-        case privacyComment = "privacy_comment"
-        case privacyView = "privacy_view"
         case thumbID = "thumb_id"
         case thumbIsLast = "thumb_is_last"
         case thumbSrc = "thumb_src"
@@ -45,24 +41,3 @@ struct ServerAlbumModel: Codable {
     }
 }
 
-struct ServerPrivacy: Codable {
-    let category: String?
-    let lists: ServerOwnersLists?
-    let owners: ServerOwnersLists?
-    
-    enum CodingKeys: String, CodingKey {
-        case category = "category"
-        case lists = "lists"
-        case owners = "owners"
-    }
-}
-
-struct ServerOwnersLists: Codable {
-    let allowed: [Int]?
-    let excluded: [Int]?
-    
-    enum CodingKeys: String, CodingKey {
-        case allowed = "allowed"
-        case excluded = "excluded"
-    }
-}

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct GroupInfoCellView: View {
     //@StateObject var viewModel = GroupsListViewModel()
@@ -14,11 +15,11 @@ struct GroupInfoCellView: View {
     var body: some View {
         VStack{
             ZStack{
-                Image(uiImage: model.photo200.load())
+                KFImage(URL(string: model.photo200))
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-                    .blur(radius: 10)
+                    .blur(radius: 7)
                     .frame(width: 400, height: 400)
                 VStack{
                     Text(model.name)

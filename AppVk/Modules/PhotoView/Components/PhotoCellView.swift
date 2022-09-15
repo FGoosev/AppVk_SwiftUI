@@ -13,33 +13,15 @@ struct PhotoCellView: View {
     @GestureState var isDetectingLongPress = false
     
     var body: some View {
-        /*
-        VStack{
-            GeometryReader{ geometry in
-                VStack{
-                    photoCell
-                }
-                .blur(radius: isDetectingLongPress ? 5 : 0)
-                .padding()
-                .frame(height: geometry.size.height, alignment: .top)
-                if isDetectingLongPress {
-                    ImagePreview(model: model)
-                        .frame(width: geometry.size.width * 0.95, height: geometry.size.height * 0.95)
-                        .transition(.scale)
-                }
-                
-            }
-            
-        }
-       */
-        VStack{
+        ZStack(alignment: .bottom){
             photoCell
+            infoPhoto
         }
     }
 }
 
 
-extension PhotoCellView{
+private extension PhotoCellView{
     
     var photoCell: some View {
         KFImage(URL(string: model.sizes[0].url ?? ""))
@@ -47,15 +29,18 @@ extension PhotoCellView{
             .cornerRadius(20)
             .frame(width: 150, height: 150)
             .scaledToFit()
-        /*
-            .gesture(LongPressGesture(minimumDuration: 60)
-                      .updating($isDetectingLongPress) { currentstate, gestureState,
-                               transaction in                      
-                               gestureState = currentstate
-                               transaction.animation = Animation.spring()
-                       }
-                  )
-         */
+    }
+    
+    var infoPhoto: some View {
+        HStack{
+            Image(systemName: "heart.fill")
+                .foregroundColor(.red)
+            Text(String(model.likes.count ?? 0))
+        }
+        .padding(.leading, 10)
+        .frame(width: 150,height: 20, alignment: .leading)
+        .background(.ultraThinMaterial)
+        .cornerRadius(20)
     }
 }
 

@@ -16,8 +16,6 @@ final class AlbumModelMapper: BaseModelMapper<ServerAlbumModel, AlbumModel> {
                    created: serverEntity.created.orEmpty,
                    description: serverEntity.description.orEmpty,
                    canDelete: serverEntity.canDelete ?? false,
-                   privacyComment: serverEntity.privacyComment ?? ServerPrivacy(category: "", lists: ServerOwnersLists(allowed: [], excluded: []), owners: ServerOwnersLists(allowed: [], excluded: [])),
-                   privacyView: serverEntity.privacyView ?? ServerPrivacy(category: "", lists: ServerOwnersLists(allowed: [], excluded: []), owners: ServerOwnersLists(allowed: [], excluded: [])),
                    thumbID: serverEntity.thumbID ?? 0,
                    thumbIsLast: serverEntity.thumbIsLast ?? 0,
                    thumbSrc: serverEntity.thumbSrc.orEmpty,

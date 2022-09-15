@@ -15,8 +15,6 @@ struct AlbumModel: Identifiable {
     let created: String
     let description: String
     let canDelete: Bool
-    let privacyComment: ServerPrivacy
-    let privacyView: ServerPrivacy
     let thumbID: Int
     let thumbIsLast: Int
     let thumbSrc: String
@@ -25,9 +23,6 @@ struct AlbumModel: Identifiable {
 
 extension AlbumModel {
     static func mock() -> Self {
-        let serverOwnersLists: ServerOwnersLists = ServerOwnersLists(allowed: [], excluded: [])
-        let serverPrivacy: ServerPrivacy = ServerPrivacy(category: "onle_me", lists: serverOwnersLists, owners: serverOwnersLists)
-        
         return AlbumModel(id: 1,
                           ownerId: 1,
                           size: 1,
@@ -35,8 +30,6 @@ extension AlbumModel {
                           created: "created",
                           description: "description",
                           canDelete: false,
-                          privacyComment: serverPrivacy,
-                          privacyView: serverPrivacy,
                           thumbID: 1,
                           thumbIsLast: 1,
                           thumbSrc: "https://vk.com/images/camera_50.png",
